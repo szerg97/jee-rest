@@ -1,9 +1,8 @@
-package com.szalai.jeerest;
+package com.szalai.jeerest.hello;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
