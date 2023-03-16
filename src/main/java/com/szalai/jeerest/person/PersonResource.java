@@ -1,12 +1,9 @@
 package com.szalai.jeerest.person;
 
 import jakarta.inject.Inject;
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
+import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-
-import java.util.List;
+import jakarta.ws.rs.core.Response;
 
 @Path("person")
 public class PersonResource {
@@ -20,7 +17,22 @@ public class PersonResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Person> getAll(){
-        return repository.getAll();
+    public Response getAll(){
+        return Response
+                .ok()
+                .entity(new ResponseEntity("Returned all persons", repository.getAll()))
+                .build();
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response addPerson(
+            Person person
+    ){
+        return Response
+                .ok()
+                .entity(new ResponseEntity("Person successfully added", repository.add(person)))
+                .build();
     }
 }

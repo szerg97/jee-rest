@@ -18,8 +18,9 @@ public class PersonRepository {
         ));
     }
 
-    public void add(Person person){
+    public int add(Person person){
         this.people.add(person);
+        return 1;
     }
 
     public Person getOne(long id){
