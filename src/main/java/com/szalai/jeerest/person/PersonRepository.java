@@ -1,8 +1,11 @@
 package com.szalai.jeerest.person;
 
+import jakarta.enterprise.context.ApplicationScoped;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@ApplicationScoped
 public class PersonRepository {
     private final List<Person> people;
 
